@@ -25,6 +25,8 @@ class ReCaptchaField(forms.CharField):
 
     def clean(self, values):
 
+        print('Cleaning', self, values)
+        
         # Disable the check if we run a test unit
         if os.environ.get('RECAPTCHA_DISABLE', None) is not None:
             return values[0]
