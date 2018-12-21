@@ -50,6 +50,7 @@ class ReCaptchaField(forms.CharField):
 
         json_response = r.json()
 
+        print(json_response)
         logger.debug("Recieved response from reCaptcha server: %s", json_response)
         if bool(json_response['success']):
             if self._score_threshold is not None and self._score_threshold > json_response['score']:
