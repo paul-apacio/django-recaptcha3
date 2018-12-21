@@ -32,6 +32,8 @@ class ReCaptchaField(forms.CharField):
         super(ReCaptchaField, self).clean(values[0])
         response_token = values[0]
 
+        print('response_token', response_token, values)
+        
         try:
             r = requests.post(
                 'https://www.google.com/recaptcha/api/siteverify',
